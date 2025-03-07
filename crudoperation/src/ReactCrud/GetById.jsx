@@ -20,16 +20,16 @@ function GetById() {
     <div className="form-container" style={{marginTop:'2%'}}>
       <form>
         <div className="form-group">
-          <label>Name:</label>
-          <input type="text" value={data.name} readOnly />
+          <label htmlFor="name">Name:</label>
+          <input type="text" id="name" value={data.name} readOnly />
         </div>
         <div className="form-group">
-          <label>Email</label>
-          <input type="text" value={data.email} readOnly />
+          <label htmlFor="email">Email</label>
+          <input type="text" id="email" value={data.email} readOnly />
         </div>
         <div className="form-group">
-          <label>Password</label>
-          <input type="text" value={data.password} readOnly />
+          <label htmlFor="password">Password</label>
+          <input type="text" id="password" value={data.password} readOnly />
         </div>
         <Link to="/" className="btn">
           Get All

@@ -8,12 +8,12 @@ import org.springframework.transaction.annotation.Transactional;
 import com.sonarqube.dao.UserDao;
 import com.sonarqube.model.User;
 
-import java.util.logging.Logger;
+
 
 @Service
 public class UserService {
 
-    private static final Logger logger = Logger.getLogger(UserService.class.getName());
+   
     private final UserDao userDao;
 
     public UserService(UserDao userDao) {
@@ -25,7 +25,7 @@ public class UserService {
         if (userDao.getEmail(user.getEmail()) != null) {
             throw new IllegalArgumentException("Email already exists: " + user.getEmail());
         }
-        logger.info("Registering user: " + user);
+      
         userDao.registerUser(user);
         return user;
     }
@@ -34,9 +34,10 @@ public class UserService {
         return userDao.getAllUser();
     }
 
+
     @Transactional
     public User updateUser(User user) {
-        logger.info("Updating user: " + user);
+       
         return userDao.updateUser(user);
     }
 
@@ -44,9 +45,11 @@ public class UserService {
         return userDao.getById(id);
     }
 
+
     @Transactional
     public void deleteById(int id) {
-        logger.info("Deleting user with id: " + id);
+      
         userDao.deleteById(id);
     }
+
 }

@@ -17,10 +17,8 @@ function GetAll() {
   const deleteHandler=(id)=>{
     if(window.confirm('Are you sure?')){
       axios.delete(`http://localhost:8083/${id}`)
-      .then((res) => {
+      .then(() => {
                 setData(data);
-                console.log(res.data);
-                window.location.reload();
               })
       .catch((err) => {
                 console.log(err);

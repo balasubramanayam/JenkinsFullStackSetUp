@@ -38,28 +38,31 @@ const Update = () => {
     <div className="form-container" style={{marginTop:'2%'}}>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
-          <label>Enter Name:</label>
+          <label htmlFor="name">Enter Name:</label>
           <input
             type="text"
             name="name"
+            id="name"
             value={data.name}
             onChange={handleChange}
           />
         </div>
         <div className="form-group">
-          <label>Enter email:</label>
+          <label htmlFor="email">Enter email:</label>
           <input
             type="text"
             name="email"
+            id="email"
             value={data.email}
             onChange={handleChange}
           />
         </div>
         <div className="form-group">
-          <label>Enter password:</label>
+          <label htmlFor="password">Enter password:</label>
           <input
             type="text"
             name="password"
+            id="password"
             value={data.password}
             onChange={handleChange}
           />

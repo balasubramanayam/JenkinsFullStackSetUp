@@ -10,27 +10,24 @@ function GetAll() {
   const Data = useSelector((state) => state.data.Data);
   const dispatch = useDispatch();
 
-  const [deleteData,setDeleteData]=useState([]);
-
   useEffect(()=>{
     axios.get("http://localhost:8081/Data").then(
       (response)=>{dispatch(getAll(response.data))}
     ).catch()
   },[dispatch])
 
-  const deleteHandler = (id) => {
-    if (window.confirm("Are you sure to Delete?")) {
-      axios
-        .delete(`http://localhost:8081/Data/${id}`)
-        .then(() => {
-          setDeleteData(deleteData);
-          window.location.reload(); 
-        })
-        .catch((err) => {
-          console.log(err);
-        });
+  const deleteHandler = async (id) => {
+    const isConfirmed = window.confirm('Are you sure?');
+    if (!isConfirmed) return;
+  
+    try {
+      await axios.delete(`http://localhost:8083/${id}`);
+      setData((prevData) => prevData.filter((item) => item.id !== id));
+    } catch (err) {
+      console.log(err);
     }
   };
+  
 
   return (
     <div className="table-container">
